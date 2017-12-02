@@ -108,9 +108,11 @@ void display()
      *非常重要
     ***************************/
     glClear(GL_COLOR_BUFFER_BIT);
-    for (int i = 0; i < Painter.size(); i++)
+    for (int i = 0; i < Painter.size(); i++) {
         if (Painter[i] != NULL)
             Painter[i]->draw();
+    }
+
 
     //镜像绘制
     if (Painter.mirror && Painter.m != NULL)

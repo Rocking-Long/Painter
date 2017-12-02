@@ -280,6 +280,20 @@ void mouseRulerMenu(GLint opt)
     display();
 }
 
+void saveAndReadMenu(GLint opt)
+{
+    /*******************
+     *保存与读取
+    ******************/
+    cancelMotion();
+    if (opt == 0)
+        Painter.save();
+    else
+        Painter.read();
+    display();
+}
+
+
 void optionMenu(GLint opt)
 {
     //do nothing
@@ -449,11 +463,16 @@ void Menu()
         glutAddMenuEntry ("关闭鼠标标尺", 0);
         glutAddMenuEntry ("打开鼠标标尺", 1);
 
+    GLint subMenuSaveRead = glutCreateMenu (saveAndReadMenu);
+        glutAddMenuEntry ("保存", 0);
+        glutAddMenuEntry ("读取", 1);
+
     subMenu9 = glutCreateMenu (optionMenu);
         glutAddSubMenu ("背景色", subMenuBackColor);
         glutAddSubMenu ("镜像", subMenuMirror);
         glutAddSubMenu ("标尺", subMenuRuler);
         glutAddSubMenu ("鼠标标尺", subMenuMouseRuler);
+        glutAddSubMenu ("保存/读取", subMenuSaveRead);
 
 /***************************************************颜色选取***************************************************/
     //颜色菜单

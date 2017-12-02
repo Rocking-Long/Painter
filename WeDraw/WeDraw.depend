@@ -599,3 +599,101 @@
 1511968317 source:d:\code_block\file\图形学\wedraw - 调色盘\src\manager.cpp
 	"Manager.h"
 
+1512194666 source:f:\program\git\painter\wedraw\src\graph.cpp
+	"Graph.h"
+
+1512194666 f:\program\git\painter\wedraw\include\graph.h
+	"Basic.h"
+	"Tool.h"
+	<vector>
+	<iostream>
+	<GL/glut.h>
+
+1512194666 f:\program\git\painter\wedraw\include\basic.h
+	<GL/glut.h>
+	<string>
+
+1512194666 f:\program\git\painter\wedraw\include\tool.h
+	"Basic.h"
+	<cmath>
+	<vector>
+	<GL/glut.h>
+
+1512194666 source:f:\program\git\painter\wedraw\src\line.cpp
+	"Line.h"
+
+1512194666 f:\program\git\painter\wedraw\include\line.h
+	"Graph.h"
+
+1512194666 source:f:\program\git\painter\wedraw\src\mypolygon.cpp
+	"myPolygon.h"
+
+1512194666 f:\program\git\painter\wedraw\include\mypolygon.h
+	"Graph.h"
+
+1512194666 source:f:\program\git\painter\wedraw\src\myrectangle.cpp
+	"myRectangle.h"
+
+1512194666 f:\program\git\painter\wedraw\include\myrectangle.h
+	"Graph.h"
+
+1512194666 source:f:\program\git\painter\wedraw\src\pan.cpp
+	"Pan.h"
+
+1512194666 f:\program\git\painter\wedraw\include\pan.h
+	"Graph.h"
+
+1512194666 source:f:\program\git\painter\wedraw\src\tool.cpp
+	"Tool.h"
+	<iostream>
+
+1512194666 source:f:\program\git\painter\wedraw\src\triangle.cpp
+	"Triangle.h"
+
+1512194666 f:\program\git\painter\wedraw\include\triangle.h
+	"Graph.h"
+
+1512201923 source:f:\program\git\painter\wedraw\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+	"Menu.h"
+
+1512227465 f:\program\git\painter\wedraw\menu.h
+	<GL/glut.h>
+	"HappyDog.h"
+
+1512227364 f:\program\git\painter\wedraw\happydog.h
+	"Manager.h"
+
+1512223414 f:\program\git\painter\wedraw\include\manager.h
+	<vector>
+	<GL/glut.h>
+	"childGraph.h"
+	"Data.h"
+	<iostream>
+
+1512194666 f:\program\git\painter\wedraw\include\childgraph.h
+	"Line.h"
+	"myPolygon.h"
+	"myRectangle.h"
+	"Triangle.h"
+	"Pan.h"
+	"Circle.h"
+	"Tool.h"
+
+1512194666 f:\program\git\painter\wedraw\include\circle.h
+	"Graph.h"
+
+1512194666 f:\program\git\painter\wedraw\include\data.h
+	"Basic.h"
+
+1512201795 source:f:\program\git\painter\wedraw\src\circle.cpp
+	"Circle.h"
+	<cstdlib>
+
+1512227353 source:f:\program\git\painter\wedraw\src\manager.cpp
+	"Manager.h"
+	<fstream>
+

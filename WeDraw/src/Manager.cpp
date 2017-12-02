@@ -1,4 +1,5 @@
 #include "Manager.h"
+#include <fstream>
 
 
 Manager::Manager()
@@ -454,6 +455,120 @@ void Manager::cancelChoose()
     clearBoy();
 }
 
+/******************************************读取与保存**************************************************/
+void Manager::save()
+{
+    string name;
+    cout << "输入文件名：";
+    cin >> name;
+    name += ".dat";
+    ofstream output(name.c_str());
+    //保存
+    for (int i = 0; i < panel.size(); i++)
+    {
+        if (panel[i] == nullptr)
+            continue;
+        output << panel[i]->s << ' ';
+        output << panel[i]->conf.c.R << ' ' << panel[i]->conf.c.G << ' ' << panel[i]->conf.c.B << ' ';
+        output << panel[i]->conf.lineSize << ' ';
+        output << panel[i]->conf.isDashes << ' ';
+        output << panel[i]->conf.isFilled << ' ';
+        output << panel[i]->conf.frame << ' ';
+        output << panel[i]->pArray.size() << ' ';
+        for (int j = 0; j < panel[i]->pArray.size(); j++) {
+            output << panel[i]->pArray[j].x << ' ';
+            output << panel[i]->pArray[j].y << ' ';
+        }
+        output << endl;
+    }
+
+    output.close();
+    cout << "保存成功！" << endl;
+}
+
+void Manager::read()
+{
+    string name;
+    cout << "输入文件名：";
+    cin >> name;
+    name += ".dat";
+    fstream ifExist(name.c_str(), ios::in);
+    if (!ifExist) {
+        cout << "文件不存在！\n";
+        return;
+    }
+    ifExist.close();
+    ifstream input(name.c_str());
+    for (int i = 0; i < panel.size(); i++)
+        delete panel[i];
+    panel.clear();
+    Shape s = PAN;
+    GraphConfig conf;
+    int psize;
+    int index = 0;
+    int px, py;
+    int shape, linesize;
+    while (!input.eof())
+    {
+        input >> shape;
+        s = Shape(shape);
+        input >> conf.c.R;
+        input >> conf.c.G;
+        input >> conf.c.B;
+        input >> linesize;
+        conf.lineSize = LineSize(linesize);
+        input >> conf.isDashes;
+        input >> conf.isFilled;
+        input >> conf.frame;
+        createGraph(s, conf);
+        input >> psize;
+
+        for (int i = 0; i < psize; i++) {
+            if (input.fail())
+                goto Test;
+            input >> px >> py;
+            panel[index]->pArray.push_back(Point(px, py));
+        }
+        panel[index]->id = index;
+        panel[index]->ok = true;
+        index++;
+    }
+Test:
+    panel.pop_back();
+/*    cout << panel.size() << endl;
+
+    cout << panel.size() << endl;*/
+
+/*    for (int i = 0; i < panel.size(); i++) {
+        for (int j = 0; j < panel[i]->pArray.size(); j++) {
+            cout << panel[i]->s;
+            cout << panel[i]->conf.c.R;
+            cout << panel[i]->conf.c.G;
+            cout << panel[i]->conf.c.B;
+            cout << panel[i]->conf.lineSize;
+            cout << panel[i]->conf.isDashes;
+            cout << panel[i]->conf.isFilled;
+            cout << panel[i]->conf.frame << endl;
+            cout << panel[i]->pArray[j].x << ' ' <<  panel[i]->pArray[j].y << endl;
+        }
+//    cout << panel[i]->pArray.size() << endl;
+    }*/
+
+    input.close();
+    cout << "读取成功！" << endl;
+}
+/*
+    Shape s;   //形状
+    bool ok;   //图形是否绘制完成
+    GraphConfig conf;  //基本参数
+    vector<Point> pArray;  //点集
+
+     Color c;
+    LineSize lineSize = l3;  //线粗细
+    bool isDashes = false;   //是否虚线
+    bool isFilled = false;
+    bool frame = false;
+*/
 
 /*******************************清洁工******************************/
 //清理空指针
