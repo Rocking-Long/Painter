@@ -1,0 +1,601 @@
+# depslib dependency file v1.0
+1510576581 source:d:\code_block\file\wedraw\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+	"Menu.h"
+
+1301111162 d:\code_block\codeblocks\mingw\include\windows.h
+	<winresrc.h>
+	<stdarg.h>
+	<windef.h>
+	<wincon.h>
+	<winbase.h>
+	<wingdi.h>
+	<winuser.h>
+	<winnls.h>
+	<winver.h>
+	<winnetwk.h>
+	<winreg.h>
+	<winsvc.h>
+	<cderr.h>
+	<dde.h>
+	<ddeml.h>
+	<dlgs.h>
+	<imm.h>
+	<lzexpand.h>
+	<mmsystem.h>
+	<nb30.h>
+	<rpc.h>
+	<shellapi.h>
+	<winperf.h>
+	<commdlg.h>
+	<winspool.h>
+	<winsock2.h>
+	<winsock.h>
+	<ole2.h>
+
+1301111162 d:\code_block\codeblocks\mingw\include\winresrc.h
+	<winuser.h>
+	<winnt.h>
+	<winver.h>
+	<dde.h>
+	<dlgs.h>
+	<commctrl.h>
+
+1301111164 d:\code_block\codeblocks\mingw\include\winuser.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\winnt.h
+	<winerror.h>
+	<string.h>
+	<basetsd.h>
+	<pshpack4.h>
+	<poppack.h>
+
+1301111162 d:\code_block\codeblocks\mingw\include\winerror.h
+
+1341006776 d:\code_block\codeblocks\mingw\include\string.h
+	<_mingw.h>
+	<stddef.h>
+
+1341006770 d:\code_block\codeblocks\mingw\include\_mingw.h
+
+1301111148 d:\code_block\codeblocks\mingw\include\basetsd.h
+
+1301111156 d:\code_block\codeblocks\mingw\include\pshpack4.h
+
+1301111156 d:\code_block\codeblocks\mingw\include\poppack.h
+
+1301111164 d:\code_block\codeblocks\mingw\include\winver.h
+
+1301111148 d:\code_block\codeblocks\mingw\include\dde.h
+
+1301111150 d:\code_block\codeblocks\mingw\include\dlgs.h
+
+1301111148 d:\code_block\codeblocks\mingw\include\commctrl.h
+	<prsht.h>
+
+1301111156 d:\code_block\codeblocks\mingw\include\prsht.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\windef.h
+	<winnt.h>
+
+1301111162 d:\code_block\codeblocks\mingw\include\wincon.h
+
+1301111160 d:\code_block\codeblocks\mingw\include\winbase.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\wingdi.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\winnls.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\winnetwk.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\winreg.h
+
+1301111164 d:\code_block\codeblocks\mingw\include\winsvc.h
+
+1301111148 d:\code_block\codeblocks\mingw\include\cderr.h
+
+1301111148 d:\code_block\codeblocks\mingw\include\ddeml.h
+
+1301111150 d:\code_block\codeblocks\mingw\include\imm.h
+
+1301111154 d:\code_block\codeblocks\mingw\include\lzexpand.h
+
+1301111154 d:\code_block\codeblocks\mingw\include\mmsystem.h
+
+1301111154 d:\code_block\codeblocks\mingw\include\nb30.h
+
+1301111158 d:\code_block\codeblocks\mingw\include\rpc.h
+	<windows.h>
+	<rpcdce.h>
+	<rpcnsi.h>
+	<rpcnterr.h>
+	<winerror.h>
+	<excpt.h>
+
+1301111158 d:\code_block\codeblocks\mingw\include\rpcdce.h
+	<basetyps.h>
+	<rpcdcep.h>
+
+1301111148 d:\code_block\codeblocks\mingw\include\basetyps.h
+
+1301111158 d:\code_block\codeblocks\mingw\include\rpcdcep.h
+
+1301111158 d:\code_block\codeblocks\mingw\include\rpcnsi.h
+
+1301111158 d:\code_block\codeblocks\mingw\include\rpcnterr.h
+
+1341006772 d:\code_block\codeblocks\mingw\include\excpt.h
+	<_mingw.h>
+	<windef.h>
+
+1301111160 d:\code_block\codeblocks\mingw\include\shellapi.h
+	<pshpack2.h>
+	<poppack.h>
+
+1301111156 d:\code_block\codeblocks\mingw\include\pshpack2.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\winperf.h
+
+1301111148 d:\code_block\codeblocks\mingw\include\commdlg.h
+	<unknwn.h>
+	<prsht.h>
+
+1301111160 d:\code_block\codeblocks\mingw\include\unknwn.h
+	<windows.h>
+	<objfwd.h>
+	<wtypes.h>
+
+1301111156 d:\code_block\codeblocks\mingw\include\objfwd.h
+	<basetyps.h>
+
+1301111164 d:\code_block\codeblocks\mingw\include\wtypes.h
+	<rpc.h>
+	<rpcndr.h>
+
+1301111158 d:\code_block\codeblocks\mingw\include\rpcndr.h
+	<rpcnsip.h>
+	<objfwd.h>
+
+1301111158 d:\code_block\codeblocks\mingw\include\rpcnsip.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\winspool.h
+
+1301111162 d:\code_block\codeblocks\mingw\include\winsock2.h
+	<windows.h>
+
+1301111162 d:\code_block\codeblocks\mingw\include\winsock.h
+	<windows.h>
+	<mswsock.h>
+
+1301111154 d:\code_block\codeblocks\mingw\include\mswsock.h
+
+1301111156 d:\code_block\codeblocks\mingw\include\ole2.h
+	<winerror.h>
+	<objbase.h>
+	<olectlid.h>
+	<oleauto.h>
+	<oleidl.h>
+
+1301111154 d:\code_block\codeblocks\mingw\include\objbase.h
+	<rpc.h>
+	<rpcndr.h>
+	<stdlib.h>
+	<basetyps.h>
+	<wtypes.h>
+	<unknwn.h>
+	<objidl.h>
+	<cguid.h>
+
+1341006776 d:\code_block\codeblocks\mingw\include\stdlib.h
+	<_mingw.h>
+	<stddef.h>
+
+1301111156 d:\code_block\codeblocks\mingw\include\objidl.h
+	<objfwd.h>
+
+1301111148 d:\code_block\codeblocks\mingw\include\cguid.h
+
+1301111156 d:\code_block\codeblocks\mingw\include\olectlid.h
+
+1301111156 d:\code_block\codeblocks\mingw\include\oleauto.h
+	<oaidl.h>
+
+1301111154 d:\code_block\codeblocks\mingw\include\oaidl.h
+	<windows.h>
+	<ole2.h>
+
+1301111156 d:\code_block\codeblocks\mingw\include\oleidl.h
+	<objfwd.h>
+
+983673186 d:\code_block\codeblocks\mingw\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1301111164 d:\code_block\codeblocks\mingw\include\gl\gl.h
+
+1301111164 d:\code_block\codeblocks\mingw\include\gl\glu.h
+	<stddef.h>
+	<GL/gl.h>
+
+1510576054 d:\code_block\file\wedraw\menu.h
+	<GL/glut.h>
+	"HappyDog.h"
+
+1510577791 d:\code_block\file\wedraw\include\manager.h
+	<vector>
+	<GL/glut.h>
+	"childGraph.h"
+	"Data.h"
+	<iostream>
+
+1510574017 d:\code_block\file\wedraw\include\childgraph.h
+	"Line.h"
+	"myPolygon.h"
+	"myRectangle.h"
+	"Triangle.h"
+	"Pan.h"
+	"Circle.h"
+	"Tool.h"
+
+1510573228 d:\code_block\file\wedraw\include\line.h
+	"Graph.h"
+
+1510576852 d:\code_block\file\wedraw\include\graph.h
+	<iostream>
+	<GL/glut.h>
+	<vector>
+	"Basic.h"
+	"Tool.h"
+
+1510576152 d:\code_block\file\wedraw\include\basic.h
+	<GL/glut.h>
+	<string>
+
+1510572732 d:\code_block\file\wedraw\include\tool.h
+	"Basic.h"
+	<cmath>
+	<vector>
+	<GL/glut.h>
+
+1510576818 d:\code_block\file\wedraw\include\mypolygon.h
+	"Graph.h"
+
+1510576905 d:\code_block\file\wedraw\include\myrectangle.h
+	"Graph.h"
+
+1510576818 d:\code_block\file\wedraw\include\triangle.h
+	"Graph.h"
+
+1510576818 d:\code_block\file\wedraw\include\pan.h
+	"Graph.h"
+
+1510574301 d:\code_block\file\wedraw\include\circle.h
+	"Graph.h"
+
+1510574095 d:\code_block\file\wedraw\include\data.h
+	"Basic.h"
+
+1510577517 source:d:\code_block\file\wedraw\src\circle.cpp
+	"Circle.h"
+
+1510576876 source:d:\code_block\file\wedraw\src\graph.cpp
+	"Graph.h"
+
+1510573248 source:d:\code_block\file\wedraw\src\line.cpp
+	"Line.h"
+
+1510577809 source:d:\code_block\file\wedraw\src\manager.cpp
+	"Manager.h"
+
+1510577749 source:d:\code_block\file\wedraw\src\mypolygon.cpp
+	"myPolygon.h"
+
+1510576818 source:d:\code_block\file\wedraw\src\myrectangle.cpp
+	"myRectangle.h"
+
+1510576817 source:d:\code_block\file\wedraw\src\pan.cpp
+	"Pan.h"
+
+1510572761 source:d:\code_block\file\wedraw\src\tool.cpp
+	"Tool.h"
+
+1510577440 d:\code_block\file\wedraw\happydog.h
+	"Manager.h"
+
+1510576818 source:d:\code_block\file\wedraw\src\triangle.cpp
+	"Triangle.h"
+
+1510576581 source:d:\code_block\file\图形学\wedraw\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+	"Menu.h"
+
+1510660950 d:\code_block\file\图形学\wedraw\menu.h
+	<GL/glut.h>
+	"HappyDog.h"
+
+1510651896 d:\code_block\file\图形学\wedraw\happydog.h
+	"Manager.h"
+
+1510641918 d:\code_block\file\图形学\wedraw\include\manager.h
+	<vector>
+	<GL/glut.h>
+	"childGraph.h"
+	"Data.h"
+	<iostream>
+
+1510574017 d:\code_block\file\图形学\wedraw\include\childgraph.h
+	"Line.h"
+	"myPolygon.h"
+	"myRectangle.h"
+	"Triangle.h"
+	"Pan.h"
+	"Circle.h"
+	"Tool.h"
+
+1510573228 d:\code_block\file\图形学\wedraw\include\line.h
+	"Graph.h"
+
+1510641583 d:\code_block\file\图形学\wedraw\include\graph.h
+	<iostream>
+	<GL/glut.h>
+	<vector>
+	"Basic.h"
+	"Tool.h"
+
+1510578104 d:\code_block\file\图形学\wedraw\include\basic.h
+	<GL/glut.h>
+	<string>
+
+1510641583 d:\code_block\file\图形学\wedraw\include\tool.h
+	"Basic.h"
+	<cmath>
+	<vector>
+	<GL/glut.h>
+
+1510576818 d:\code_block\file\图形学\wedraw\include\mypolygon.h
+	"Graph.h"
+
+1510576905 d:\code_block\file\图形学\wedraw\include\myrectangle.h
+	"Graph.h"
+
+1510576818 d:\code_block\file\图形学\wedraw\include\triangle.h
+	"Graph.h"
+
+1510652020 d:\code_block\file\图形学\wedraw\include\pan.h
+	"Graph.h"
+
+1510661068 d:\code_block\file\图形学\wedraw\include\circle.h
+	"Graph.h"
+
+1510574095 d:\code_block\file\图形学\wedraw\include\data.h
+	"Basic.h"
+
+1510577517 source:d:\code_block\file\图形学\wedraw\src\circle.cpp
+	"Circle.h"
+
+1510573248 source:d:\code_block\file\图形学\wedraw\src\line.cpp
+	"Line.h"
+
+1510577749 source:d:\code_block\file\图形学\wedraw\src\mypolygon.cpp
+	"myPolygon.h"
+
+1510576818 source:d:\code_block\file\图形学\wedraw\src\myrectangle.cpp
+	"myRectangle.h"
+
+1510576817 source:d:\code_block\file\图形学\wedraw\src\pan.cpp
+	"Pan.h"
+
+1510577952 source:d:\code_block\file\图形学\wedraw\src\triangle.cpp
+	"Triangle.h"
+
+1510641685 source:d:\code_block\file\图形学\wedraw\src\graph.cpp
+	"Graph.h"
+
+1510641583 source:d:\code_block\file\图形学\wedraw\src\tool.cpp
+	"Tool.h"
+	<iostream>
+
+1510651775 source:d:\code_block\file\图形学\wedraw\src\manager.cpp
+	"Manager.h"
+
+1510748667 source:d:\code_block\file\图形学\wedraw - 副本\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+	"Menu.h"
+
+1510743821 d:\code_block\file\图形学\wedraw - 副本\menu.h
+	<GL/glut.h>
+	"HappyDog.h"
+
+1510662904 d:\code_block\file\图形学\wedraw - 副本\happydog.h
+	"Manager.h"
+
+1510748429 d:\code_block\file\图形学\wedraw - 副本\include\manager.h
+	<vector>
+	<GL/glut.h>
+	"childGraph.h"
+	"Data.h"
+	<iostream>
+
+1510574017 d:\code_block\file\图形学\wedraw - 副本\include\childgraph.h
+	"Line.h"
+	"myPolygon.h"
+	"myRectangle.h"
+	"Triangle.h"
+	"Pan.h"
+	"Circle.h"
+	"Tool.h"
+
+1510573228 d:\code_block\file\图形学\wedraw - 副本\include\line.h
+	"Graph.h"
+
+1510662221 d:\code_block\file\图形学\wedraw - 副本\include\graph.h
+	"Basic.h"
+	"Tool.h"
+	<vector>
+	<iostream>
+	<GL/glut.h>
+
+1510576818 d:\code_block\file\图形学\wedraw - 副本\include\mypolygon.h
+	"Graph.h"
+
+1510711767 d:\code_block\file\图形学\wedraw - 副本\include\myrectangle.h
+	"Graph.h"
+
+1510711822 d:\code_block\file\图形学\wedraw - 副本\include\triangle.h
+	"Graph.h"
+
+1510652020 d:\code_block\file\图形学\wedraw - 副本\include\pan.h
+	"Graph.h"
+
+1510661068 d:\code_block\file\图形学\wedraw - 副本\include\circle.h
+	"Graph.h"
+
+1510662154 d:\code_block\file\图形学\wedraw - 副本\include\tool.h
+	"Basic.h"
+	<cmath>
+	<vector>
+	<GL/glut.h>
+
+1510743794 d:\code_block\file\图形学\wedraw - 副本\include\basic.h
+	<GL/glut.h>
+	<string>
+
+1510574095 d:\code_block\file\图形学\wedraw - 副本\include\data.h
+	"Basic.h"
+
+1510661285 source:d:\code_block\file\图形学\wedraw - 副本\src\circle.cpp
+	"Circle.h"
+
+1510641685 source:d:\code_block\file\图形学\wedraw - 副本\src\graph.cpp
+	"Graph.h"
+
+1510573248 source:d:\code_block\file\图形学\wedraw - 副本\src\line.cpp
+	"Line.h"
+
+1510747513 source:d:\code_block\file\图形学\wedraw - 副本\src\manager.cpp
+	"Manager.h"
+
+1510577749 source:d:\code_block\file\图形学\wedraw - 副本\src\mypolygon.cpp
+	"myPolygon.h"
+
+1510711649 source:d:\code_block\file\图形学\wedraw - 副本\src\myrectangle.cpp
+	"myRectangle.h"
+
+1510576817 source:d:\code_block\file\图形学\wedraw - 副本\src\pan.cpp
+	"Pan.h"
+
+1510641583 source:d:\code_block\file\图形学\wedraw - 副本\src\tool.cpp
+	"Tool.h"
+	<iostream>
+
+1510577952 source:d:\code_block\file\图形学\wedraw - 副本\src\triangle.cpp
+	"Triangle.h"
+
+1511971358 source:d:\code_block\file\图形学\wedraw - 调色盘\src\circle.cpp
+	"Circle.h"
+	<cstdlib>
+
+1511971150 d:\code_block\file\图形学\wedraw - 调色盘\include\circle.h
+	"Graph.h"
+
+1510662221 d:\code_block\file\图形学\wedraw - 调色盘\include\graph.h
+	"Basic.h"
+	"Tool.h"
+	<vector>
+	<iostream>
+	<GL/glut.h>
+
+1511972484 d:\code_block\file\图形学\wedraw - 调色盘\include\basic.h
+	<GL/glut.h>
+	<string>
+
+1510662154 d:\code_block\file\图形学\wedraw - 调色盘\include\tool.h
+	"Basic.h"
+	<cmath>
+	<vector>
+	<GL/glut.h>
+
+1510641685 source:d:\code_block\file\图形学\wedraw - 调色盘\src\graph.cpp
+	"Graph.h"
+
+1510573248 source:d:\code_block\file\图形学\wedraw - 调色盘\src\line.cpp
+	"Line.h"
+
+1510573228 d:\code_block\file\图形学\wedraw - 调色盘\include\line.h
+	"Graph.h"
+
+1510577749 source:d:\code_block\file\图形学\wedraw - 调色盘\src\mypolygon.cpp
+	"myPolygon.h"
+
+1510576818 d:\code_block\file\图形学\wedraw - 调色盘\include\mypolygon.h
+	"Graph.h"
+
+1511972398 source:d:\code_block\file\图形学\wedraw - 调色盘\src\myrectangle.cpp
+	"myRectangle.h"
+
+1510711767 d:\code_block\file\图形学\wedraw - 调色盘\include\myrectangle.h
+	"Graph.h"
+
+1510576817 source:d:\code_block\file\图形学\wedraw - 调色盘\src\pan.cpp
+	"Pan.h"
+
+1510652020 d:\code_block\file\图形学\wedraw - 调色盘\include\pan.h
+	"Graph.h"
+
+1510641583 source:d:\code_block\file\图形学\wedraw - 调色盘\src\tool.cpp
+	"Tool.h"
+	<iostream>
+
+1510577952 source:d:\code_block\file\图形学\wedraw - 调色盘\src\triangle.cpp
+	"Triangle.h"
+
+1510711822 d:\code_block\file\图形学\wedraw - 调色盘\include\triangle.h
+	"Graph.h"
+
+1511968434 source:d:\code_block\file\图形学\wedraw - 调色盘\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<cstdlib>
+	<iostream>
+	"Menu.h"
+
+1511968317 d:\code_block\file\图形学\wedraw - 调色盘\menu.h
+	<GL/glut.h>
+	"HappyDog.h"
+
+1511360599 d:\code_block\file\图形学\wedraw - 调色盘\happydog.h
+	"Manager.h"
+
+1511968361 d:\code_block\file\图形学\wedraw - 调色盘\include\manager.h
+	<vector>
+	<GL/glut.h>
+	"childGraph.h"
+	"Data.h"
+	<iostream>
+
+1510574017 d:\code_block\file\图形学\wedraw - 调色盘\include\childgraph.h
+	"Line.h"
+	"myPolygon.h"
+	"myRectangle.h"
+	"Triangle.h"
+	"Pan.h"
+	"Circle.h"
+	"Tool.h"
+
+1510574095 d:\code_block\file\图形学\wedraw - 调色盘\include\data.h
+	"Basic.h"
+
+1511968317 source:d:\code_block\file\图形学\wedraw - 调色盘\src\manager.cpp
+	"Manager.h"
+
