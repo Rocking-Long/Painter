@@ -84,6 +84,7 @@ void mouse(int button, int state, int x, int y)
                     origalMoving.set(x, sy);
                     Painter.setOriginalRec(optionID);
                 }
+                //ÑÕÉ«Ìõ
                 else if (myMotion == SETCOLOR) {
                     origalMoving.set(x, sy);
                 }

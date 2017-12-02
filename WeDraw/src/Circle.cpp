@@ -80,8 +80,6 @@ void Ellipse::draw()
 
     int x = pArray[0].x;
     int y = pArray[1].y;
-/*    GLfloat x = (pArray[0].x+pArray[1].x) / 2;  //圆心横坐标
-    GLfloat y = (pArray[0].y+pArray[1].y) / 2;  //圆心纵坐标*/
 
     //绘制
     for (int i = 0; i < 2; i++)
@@ -91,12 +89,6 @@ void Ellipse::draw()
             glVertex2f(x+b*cos(2*PI/precision*i),
                        y+a*sin(2*PI/precision*i));
         glEnd();
-
-        /*glBegin(GL_POLYGON);
-        for(int i=0; i < precision; ++i)
-            glVertex2f(x+R*cos(2*PI/precision*i),
-                       y+R*sin(2*PI/precision*i));
-        glEnd();*/
 
         if (!conf.frame) break;
         glColor3f(0.0, 0.0, 0.0);
