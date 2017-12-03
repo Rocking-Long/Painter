@@ -117,41 +117,60 @@ void CRectangle::draw()
     config();
 
     GLfloat R = PPDistance(pArray[0], pArray[2]) / 8;  //半径
-    if (R > 20)
-        R = 20;
-    GLfloat x1 = pArray[0].x+R;
-    GLfloat y1 = pArray[0].y-R;
-    GLfloat x2 = pArray[2].x-R;
-    GLfloat y2 = pArray[2].y+R;
+    if (R > 15)
+        R = 15;
 
+    //取左上角和右下角的顶点
+    Point p1, p2;
+    p1.set(pArray[0]);
+    p2.set(pArray[2]);
+    if (p1.x > p2.x && p1.y > p2.y) {
+        p1.set(pArray[1]);
+        p2.set(pArray[3]);
+    }
+    else if (p1.x < p2.x && p1.y < p2.y) {
+        p1.set(pArray[3]);
+        p2.set(pArray[1]);
+    }
+    else if (p1.x > p2.x && p1.y < p2.y) {
+        swapPoint(p1, p2);
+    }
+
+    //4个四分之一圆的圆心
+    GLfloat x1 = p1.x+R;
+    GLfloat y1 = p1.y-R;
+    GLfloat x2 = p2.x-R;
+    GLfloat y2 = p2.y+R;
+
+    //绘制
     for (int i = 0; i < 2; i++) {
         glBegin(GL_POLYGON);
-            glVertex2i(pArray[2].x, y2);
-            glVertex2i(pArray[2].x, y1);
+            glVertex2i(p2.x, y2);
+            glVertex2i(p2.x, y1);
             for(int i=0; i < subPrecision; ++i)
             {
                glVertex2f(x2+R*cos(0.5*PI/subPrecision*i),
                            y1+R*sin(0.5*PI/subPrecision*i));
             }
 
-            glVertex2i(x2, pArray[0].y);
-            glVertex2i(x1, pArray[0].y);
+            glVertex2i(x2, p1.y);
+            glVertex2i(x1, p1.y);
             for(int i=subPrecision; i < 2*subPrecision; ++i)
             {
                  glVertex2f(x1+R*cos(0.5*PI/subPrecision*i),
                            y1+R*sin(0.5*PI/subPrecision*i));
             }
 
-            glVertex2i(pArray[0].x, y1);
-            glVertex2i(pArray[0].x, y2);
+            glVertex2i(p1.x, y1);
+            glVertex2i(p1.x, y2);
             for(int i=2*subPrecision; i < 3*subPrecision; ++i)
             {
                 glVertex2f(x1+R*cos(0.5*PI/subPrecision*i),
                            y2+R*sin(0.5*PI/subPrecision*i));
             }
 
-            glVertex2i(x1, pArray[2].y);
-            glVertex2i(x2, pArray[2].y);
+            glVertex2i(x1, p2.y);
+            glVertex2i(x2, p2.y);
             for(int i=3*subPrecision; i < 4*subPrecision; ++i)
             {
                 glVertex2f(x2+R*cos(0.5*PI/subPrecision*i),
