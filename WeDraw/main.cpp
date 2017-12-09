@@ -6,139 +6,138 @@
 #include "Menu.h"
 using namespace std;
 
-/******************************************È«¾ÖÊı¾İ*********************************************/
-//×¢ÊÍÊı¾İÔÚHappyDog.hÀï
-//GraphConfig config;   Í¼ĞÎ»ù±¾²ÎÊı
-//Shape shape = LINE;   Í¼ĞÎÀà±ğ
-//bool choose = false;  ÊÇ·ñÑ¡Ôñ
+////////////////////////////////////////////////////////////////////////////////å…¨å±€æ•°æ®
 
-//Êó±ê²Ù×÷£¬·ÀÖ¹bug£¬Ã»ÓĞ¸ü¶à×÷ÓÃ
-//bool mouseLeft  = false;  //ÔÚMenuÖĞ
+//æ³¨é‡Šæ•°æ®åœ¨HappyDog.hé‡Œ
+//GraphConfig config;   å›¾å½¢åŸºæœ¬å‚æ•°
+//Shape shape = LINE;   å›¾å½¢ç±»åˆ«
+//bool choose = false;  æ˜¯å¦é€‰æ‹©
+
+//é¼ æ ‡æ“ä½œï¼Œé˜²æ­¢bugï¼Œæ²¡æœ‰æ›´å¤šä½œç”¨
+//bool mouseLeft  = false;  //åœ¨Menuä¸­
 //bool mouseRight = false;
 
-//Í¼ĞÎ²Ù×÷
-//int optionID = -1;  //±»Ñ¡ÔñµÄÍ¼ĞÎ  Menu.h
-Point origalMoving;   //Î»ÒÆÔ­µã
+//å›¾å½¢æ“ä½œ
+//int optionID = -1;  //è¢«é€‰æ‹©çš„å›¾å½¢  Menu.h
+Point origalMoving;   //ä½ç§»åŸç‚¹
 
-//´°¿Ú´óĞ¡£¬ÔÚManager.h
+//çª—å£å¤§å°ï¼Œåœ¨Manager.h
 //int screenWidth  = 1000;
 //int screenHeight = 600;
 
 
-/******************************************¿ØÖÆº¯Êı********************************************/
+////////////////////////////////////////////////////////////////////////////////æ§åˆ¶å‡½æ•°
 
-
+/*åˆå§‹åŒ–é¢æ¿*/
 void init(void)
 {
-    /******************
-     *³õÊ¼»¯
-    ******************/
     glClearColor(1.0,1.0,1.0,1.0);
     glMatrixMode(GL_PROJECTION);
     gluOrtho2D(0.0, screenWidth, 0.0, screenHeight);
 }
 
 
+/**
+ *  @brief  é¼ æ ‡ç‚¹å‡»äº‹ä»¶
+ *  @param  button æ˜¯é¼ æ ‡å·¦é”®è¿˜æ˜¯å³é”®
+ *  @param  state æ˜¯æ‘ä¸‹è¿˜æ˜¯æ¾å¼€
+ *  @param  x, y é¼ æ ‡å½“å‰ä½ç½®
+ */
 void mouse(int button, int state, int x, int y)
 {
-    /*********************************
-     *¼àÊÓÊó±êÊÂ¼ş
-     *¼ì²âÊó±ê×ó¼ü
-     *ŞôÏÂÊ±£¬±»»æ»­Í¼ĞÎÔö¼ÓÒ»¸ö¶¥µã
-     *»òÕß½øĞĞ¶¯×÷
-     *ËÉ¿ªÊ±£¬Íê³É¶¯×÷»ò»æ»­
-    *********************************/
+    // ç›‘è§†é¼ æ ‡äº‹ä»¶
+    // æ£€æµ‹é¼ æ ‡å·¦é”®
+    // æ‘ä¸‹æ—¶ï¼Œè¢«ç»˜ç”»å›¾å½¢å¢åŠ ä¸€ä¸ªé¡¶ç‚¹
+    // æˆ–è€…è¿›è¡ŒåŠ¨ä½œ
+    // æ¾å¼€æ—¶ï¼Œå®ŒæˆåŠ¨ä½œæˆ–ç»˜ç”»
 
     int sy = screenHeight-y;
-    //Êó±ê±ê³ß
+
+    // é¼ æ ‡æ ‡å°º
     if (mouseRuler)
         setMouseXY(x, sy);
-    //×ó¼ü
+
+    // å·¦é”®
     if(button == GLUT_LEFT_BUTTON)
     {
         mouseLeft  = true;
         mouseRight = false;
 
-        /******************************
-         *×ó¼üŞôÏÂ²Ù×÷
-         *Í¼ĞÎÑ¡Ôñ£¬²Ù×÷
-         *Í¼ĞÎ»æÖÆ
-        *******************************/
+        // å·¦é”®æ‘ä¸‹æ“ä½œ
+        // å›¾å½¢é€‰æ‹©ï¼Œæ“ä½œ
+        // å›¾å½¢ç»˜åˆ¶
         if(state == GLUT_DOWN)
         {
-            //Í¼ĞÎÑ¡Ôñ
-            //---------------------------------
+            //å›¾å½¢é€‰æ‹©
             if (choose)
             {
-                //ÎŞ¶¯×÷
+                //æ— åŠ¨ä½œ
                 if (myMotion == NO) {
                     optionID = Painter.getNearestGraph(x, sy);
                     if (optionID == -1) return;
                 }
-                //Æ½ÒÆ
+                //å¹³ç§»
                 else if (myMotion == MOVING || myMotion == DRAG) {
                     origalMoving.set(x, sy);
                 }
-                //´óĞ¡ĞÎ±ä
+                //å¤§å°å½¢å˜
                 else if (myMotion == SCHANGE || myMotion == RCHANGE) {
                     origalMoving.set(x, sy);
                     Painter.setOriginalRec(optionID);
                 }
-                //ÑÕÉ«Ìõ
+                //é¢œè‰²æ¡
                 else if (myMotion == SETCOLOR) {
                     origalMoving.set(x, sy);
                 }
 
                 display();
-                return;  //½áÊø
+                return;
             }
 
-            //Í¼ĞÎ»æÖÆ
-            //-----------------------------------
-            Painter.createGraph(shape, config);  //Èç¹ûĞèÒª´´½¨ĞÂÍ¼ĞÎ£¬Ôò´´½¨
-            Painter.setPoint(x, sy); //¼ÓÈëĞÂ»æÖÆµÄ¶¥µã
-            //¾µÏñ
-                if (Painter.mirror)
-                {
-                    int mx, my;
-                    switch (Painter.mirror) {
-                        case 1: mx = screenWidth-x; my = sy; break;
-                        case 2: mx = x; my = screenHeight - sy; break;
-                        case 3: mx = screenWidth-x; my = screenHeight-sy; break;
-                    }
-                    Painter.m->setPoint(mx, my);
-                    if (Painter.getLast()->finish()) {
-                        //½áÊø»æÖÆ¾µÏñ
-                        Painter.panel.push_back(Painter.m);
-                        Painter.m = NULL;
-                    }
-
+            //å›¾å½¢ç»˜åˆ¶
+            Painter.createGraph(shape, config);  //å¦‚æœéœ€è¦åˆ›å»ºæ–°å›¾å½¢ï¼Œåˆ™åˆ›å»º
+            Painter.setPoint(x, sy);             //åŠ å…¥æ–°ç»˜åˆ¶çš„é¡¶ç‚¹
+            //é•œåƒ
+            if (Painter.mirror)
+            {
+                int mx, my;
+                switch (Painter.mirror) {
+                    case 1: mx = screenWidth-x; my = sy; break;
+                    case 2: mx = x; my = screenHeight - sy; break;
+                    case 3: mx = screenWidth-x; my = screenHeight-sy; break;
                 }
+                Painter.m->setPoint(mx, my);
+                if (Painter.getLast()->finish()) {
+                    //ç»“æŸç»˜åˆ¶é•œåƒ
+                    Painter.panel.push_back(Painter.m);
+                    Painter.m = NULL;
+                }
+
+            }
 
             display();
         }
 
-        /*****************************
-         *×ó¼üËÉ¿ª²Ù×÷
-         *»­±ÊÍê³É
-         *Í¼ĞÎ²Ù×÷
-        *****************************/
+
+        // å·¦é”®æ¾å¼€æ“ä½œ
+        // ç”»ç¬”å®Œæˆ
+        // å›¾å½¢æ“ä½œ
         else if (state == GLUT_UP)
         {
             if (Painter.empty())
                 return;
-            //Í¼ĞÎ²Ù×÷£¬Íê³É
+            //å›¾å½¢æ“ä½œï¼Œå®Œæˆ
             if (choose && optionID != -1)
             {
                 //pass
             }
-            //»­±Ê²Ù×÷£¬Íê³É»æÖÆ
+            //ç”»ç¬”æ“ä½œï¼Œå®Œæˆç»˜åˆ¶
             else if (shape == PAN)
             {
-                mouseRight = true;  //·ÀÖ¹ÓÒ¼ü»æ»­
+                mouseRight = true;  //é˜²æ­¢å³é”®ç»˜ç”»
                 Painter.setPoint(x, sy);
                 Painter.getLast()->ok = true;
-                    //¾µÏñ
+                    //é•œåƒ
                     if (Painter.mirror)
                     {
                         int mx, my;
@@ -147,7 +146,7 @@ void mouse(int button, int state, int x, int y)
                             case 2: mx = x; my = screenHeight - sy; break;
                             case 3: mx = screenWidth-x; my = screenHeight-sy; break;
                         }
-                        //½áÊø»æÖÆ¾µÏñ
+                        //ç»“æŸç»˜åˆ¶é•œåƒ
                         Painter.m->setPoint(mx, my);
                         Painter.m->ok = true;
                         Painter.panel.push_back(Painter.m);
@@ -159,11 +158,9 @@ void mouse(int button, int state, int x, int y)
         }
     }
 
-    /***********************
-     *ÓÒ¼ü²Ù×÷
-     *¿ÉÄÜ·Ç·¨
-     *×öºÃ·À·¶
-    ***********************/
+    // å³é”®æ“ä½œ
+    // å¯èƒ½éæ³•
+    // åšå¥½é˜²èŒƒ
     else {
         mouseLeft  = false;
         mouseRight = true;
@@ -171,29 +168,28 @@ void mouse(int button, int state, int x, int y)
 
 }
 
-
+/**
+ *  é¼ æ ‡æ¾å¼€åçš„ç›‘è§†
+ *  æ”¹å˜æ­£åœ¨ç»˜ç”»çš„å›¾å½¢çš„è¢«ç”»ç‚¹çš„åæ ‡
+ */
 void passiveMotion(int x, int y)
 {
-    /*************************************
-     *¼àÊÓËÉ¿ªÊó±êºóµÄ¶¯×÷
-     *¸Ä±äÕıÔÚ»æ»­µÄÍ¼ĞÎµÄ±»»­µãµÄ×ø±ê
-    *************************************/
     int sy = screenHeight - y;
-    //Êó±ê±ê³ß
+    //é¼ æ ‡æ ‡å°º
     if (mouseRuler)
         setMouseXY(x, sy);
 
 
-    //Ã»ÓĞÍ¼ĞÎÕıÔÚ»æ»­£¬²»ĞèÒªµ÷ÓÃ´Ë
+    //æ²¡æœ‰å›¾å½¢æ­£åœ¨ç»˜ç”»ï¼Œä¸éœ€è¦è°ƒç”¨æ­¤
     if (!Painter.enable() || shape == PAN) {
         if (mouseRuler)
             display();
         return;
     }
 
-    //ÓĞÍ¼ĞÎÕıÔÚ»æ»­ÖĞ£¬ĞŞ¸Ä±»»æ»­µãµÄ×ø±ê
+    //æœ‰å›¾å½¢æ­£åœ¨ç»˜ç”»ä¸­ï¼Œä¿®æ”¹è¢«ç»˜ç”»ç‚¹çš„åæ ‡
     Painter.changePoint(x, sy);
-        //¾µÏñ
+        //é•œåƒ
         if (Painter.mirror)
         {
             int mx, my;
@@ -207,39 +203,38 @@ void passiveMotion(int x, int y)
     display();
 }
 
-
+/**
+ *  é¼ æ ‡æŒ‰ä½äº‹ä»¶
+ *  ç”¨äºç”»ç¬”ç»˜å›¾å’Œå›¾åƒæ“ä½œ
+ */
 void motion(int x, int y)
 {
-    /**********************************
-     *Êó±ê°´×¡ÊÂ¼ş
-     *ÓÃÓÚ»­±Ê»æÍ¼ºÍÍ¼Ïñ²Ù×÷
-    **********************************/
     if ((shape!=PAN && !choose) || mouseRight || Painter.empty())
         return;
 
-    //Êó±ê±ê³ß
+    //é¼ æ ‡æ ‡å°º
     if (mouseRuler)
         setMouseXY(x, screenHeight-y);
 
-    //Í¼ĞÎ±»Ñ¡Ôñ
+    //å›¾å½¢è¢«é€‰æ‹©
     if (choose && optionID != -1)
     {
         int moveX = x - origalMoving.x;
         int moveY = screenHeight - y - origalMoving.y;
-        //½øĞĞÆ½ÒÆ²Ù×÷
+        //è¿›è¡Œå¹³ç§»æ“ä½œ
         if (myMotion == MOVING) {
             Painter.move(optionID, moveX, moveY);
         }
-        //½øĞĞÀ­³¶²Ù×÷
+        //è¿›è¡Œæ‹‰æ‰¯æ“ä½œ
         else if (myMotion == DRAG) {
             if (shape == PAN) return;
             Painter.drag(optionID, origalMoving, moveX, moveY);
         }
-        //¸Ä±ä´óĞ¡²Ù×÷
+        //æ”¹å˜å¤§å°æ“ä½œ
         else if (myMotion == SCHANGE) {
             Painter.changeSize(optionID, moveX, moveY);
         }
-        //¸Ä±äĞÎ×´
+        //æ”¹å˜å½¢çŠ¶
         else if (myMotion == RCHANGE) {
             Painter.changeShape(optionID, moveX, moveY);
         }
@@ -249,12 +244,12 @@ void motion(int x, int y)
 
         origalMoving.set(x, screenHeight-y);
     }
-    //»­±Ê
+    //ç”»ç¬”
     else
     {
         int sy = screenHeight - y;
         Painter.setPoint(x, sy);
-            //¾µÏñ
+            //é•œåƒ
             if (Painter.mirror) {
                 int mx, my;
                 switch (Painter.mirror) {
@@ -273,8 +268,7 @@ void motion(int x, int y)
 
 int main(int argc, char *argv[])
 {
-    //½çÃæ³õÊ¼»¯
-    //------------------------------------
+    // ç•Œé¢åˆå§‹åŒ–
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
     glutInitWindowSize(screenWidth, screenHeight);
@@ -285,11 +279,10 @@ int main(int argc, char *argv[])
     Painter.screenHeight = screenHeight;
     Painter.screenWidth  = screenWidth;
 
-    //²Ëµ¥
+    // èœå•
     Menu();
 
-    //¿ªÊ¼»æ»­
-    //--------------------------------------
+    // å¼€å§‹ç»˜ç”»
     glutMouseFunc(mouse);
     glutMotionFunc(motion);
     glutPassiveMotionFunc(passiveMotion);

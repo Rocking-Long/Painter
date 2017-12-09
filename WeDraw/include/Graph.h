@@ -1,14 +1,15 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-/************************************************
- *GraphÀà
- *ËùÓĞÍ¼ĞÎ¼Ì³ĞµÄ¸¸Àà
- *ÊµÏÖËùÓĞ»ù±¾²Ù×÷
- *
- *Èç¹ûÏëÎªÍ¼ĞÎÌí¼ÓĞÂ¹¦ÄÜ£¬ĞèÒªÔÚ¸ÃÀàÖĞÌí¼Ó£¬²¢ÔÚ
- *ÆäËûÍ¼ĞÎÖĞÖØĞ´
-************************************************/
+
+// Graphç±»
+// æ‰€æœ‰å›¾å½¢ç»§æ‰¿çš„çˆ¶ç±»
+// å®ç°æ‰€æœ‰åŸºæœ¬æ“ä½œ
+//
+// å¦‚æœæƒ³ä¸ºå›¾å½¢æ·»åŠ æ–°åŠŸèƒ½ï¼Œéœ€è¦åœ¨è¯¥ç±»ä¸­
+// æ·»åŠ ï¼Œå¹¶åœ¨å…¶ä»–å›¾å½¢ä¸­é‡å†™
+
+
 
 #include "Basic.h"
 #include "Tool.h"
@@ -18,52 +19,52 @@
 using namespace std;
 
 
+
+/**
+ *  @brief  å›¾å½¢çˆ¶ç±»
+ *
+ *  æ‰€æœ‰å›¾å½¢çš„çˆ¶ç±»ï¼Œå®ç°ä¸€ä¸ªå›¾å½¢
+ *  éœ€è¦ç»§æ‰¿è¯¥ç±»å¹¶é‡å†™éœ€è¦çš„å‡½æ•°
+ */
 class Graph
 {
-    /**********************
-     *ÓĞÎ¨Ò»±êÊ¶Ò»¸öÍ¼ĞÎµÄid
-     *Í¼ĞÎµÄĞÎ×´s£¬Ê¹ÓÃÃ¶¾ÙÀàĞÍ
-     *¸ÃÍ¼ĞÎÊÇ·ñÉèÖÃºÃ
-     *¸ÃÍ¼ĞÎµÄµã¼¯
-     *Í¼ĞÎµÄ²ÎÊı
-    ***********************/
 public:
-    int id;    //Í¼ĞÎid
-    Shape s;   //ĞÎ×´
-    bool ok;   //Í¼ĞÎÊÇ·ñ»æÖÆÍê³É
-    GraphConfig conf;  //»ù±¾²ÎÊı
-    vector<Point> pArray;  //µã¼¯
+    int id;    //å›¾å½¢id
+    Shape s;   //å½¢çŠ¶
+    bool ok;   //å›¾å½¢æ˜¯å¦ç»˜åˆ¶å®Œæˆ
+    GraphConfig conf;  //åŸºæœ¬å‚æ•°
+    vector<Point> pArray;  //ç‚¹é›†
 
 public:
     Graph(int i): id(i), s(LINE), ok(false) {}
     ~Graph() {}
 
 
-    //»ù±¾²ÎÊıÉèÖÃ
-    bool finish();                          //»æÖÆ½áÊø
-    void setColor(const Color &col);        //ÉèÖÃÑÕÉ«
-    void setLineSize(LineSize lineSize);    //ÉèÖÃ´ÖÏ¸
-    void setDash(bool isDashes);            //ÉèÖÃĞéÏß
-    void setpolymode(bool isfilled);        //ÉèÖÃÌî³ä
-    void setConfig(const GraphConfig &config);  //ËùÓĞÉèÖÃ
+    /*åŸºæœ¬å‚æ•°è®¾ç½®*/
+    bool finish();                          //ç»˜åˆ¶ç»“æŸ
+    void setColor(const Color &col);        //è®¾ç½®é¢œè‰²
+    void setLineSize(LineSize lineSize);    //è®¾ç½®ç²—ç»†
+    void setDash(bool isDashes);            //è®¾ç½®è™šçº¿
+    void setpolymode(bool isfilled);        //è®¾ç½®å¡«å……
+    void setConfig(const GraphConfig &config);  //æ‰€æœ‰è®¾ç½®
 
-    //µãÉèÖÃ
-    virtual void setPoint(int x, int y);     //¼ÓÈë¶¥µã£¬ÓÃÓÚ»æÖÆ
-    virtual void changePoint(int x, int y);  //ĞŞ¸Ä¶¥µã£¬ÓÃÓÚ»æÖÆÓë¶¯×÷
-    virtual double getDistance(int x, int y){} //¼ÆËãµãÓëÍ¼ÏñµÄ¾àÀë£¬ÓÃÓÚÊó±êÑ¡Ôñ
+    /*ç‚¹è®¾ç½®*/
+    virtual void setPoint(int x, int y);       //åŠ å…¥é¡¶ç‚¹ï¼Œç”¨äºç»˜åˆ¶
+    virtual void changePoint(int x, int y);    //ä¿®æ”¹é¡¶ç‚¹ï¼Œç”¨äºç»˜åˆ¶ä¸åŠ¨ä½œ
+    virtual double getDistance(int x, int y){} //è®¡ç®—ç‚¹ä¸å›¾åƒçš„è·ç¦»ï¼Œç”¨äºé¼ æ ‡é€‰æ‹©
 
-    virtual void copy(Graph*);   //¸´ÖÆ×Ô¼º£¬ÓÃÓÚ¾µÏñ
+    /*å›¾å½¢åŠ¨ä½œ*/
+    virtual void draw() = 0;    //ç»˜åˆ¶è¯¥å›¾å½¢
+    virtual void copy(Graph*);  //å¤åˆ¶è‡ªå·±ï¼Œç”¨äºé•œåƒ
+    void move(int, int);        //ä½ç§»
+    virtual void rotate() {};   //æ—‹è½¬
+    virtual void drag(const Point &originalPoint, int x, int y);  //æ‹‰æ‰¯
 
-
-    //Í¼ĞÎ¶¯×÷
-    virtual void draw() = 0;   //»æÖÆ¸ÃÍ¼ĞÎ
-    void move(int, int);   //Î»ÒÆ
-    virtual void rotate() {};   //Ğı×ª
-    virtual void drag(const Point &originalPoint, int x, int y);  //À­³¶
-    virtual void getRectangle(Point &, Point &);
+    /*å…¶ä»–*/
+    virtual void getRectangle(Point &, Point &);  //ç”¨äºç»˜åˆ¶æè¾¹çŸ©å½¢
 
 protected:
-    //ÅäÖÃ
+    /*é…ç½®*/
     void config();
 };
 

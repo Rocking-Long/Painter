@@ -2,35 +2,36 @@
 #include <iostream>
 using namespace std;
 
-/**********************************************
- *¹¤¾ßÏä
- *ÇóÁ½µã¾àÀë
- *ÇóµãÓëÏß¶Î¾àÀë
- *½»»»Á½µã
-**********************************************/
 
+// å·¥å…·ç®±
+// æ±‚ä¸¤ç‚¹è·ç¦»
+// æ±‚ç‚¹ä¸Žçº¿æ®µè·ç¦»
+// äº¤æ¢ä¸¤ç‚¹
+
+/**
+ *  @brief  è®¡ç®—ä¸¤ç‚¹è·ç¦»
+ */
 inline double PPDistance(const Point &p1, const Point &p2)
 {
-    /***********************
-     *¼ÆËãÏßÁ½µã¾àÀë
-    ***********************/
     return sqrt((p1.x-p2.x)*(p1.x-p2.x) + (p1.y-p2.y)*(p1.y-p2.y));
 }
 
 
+/**
+ *  @brief  è®¡ç®—ç‚¹ä¸Žçº¿æ®µçš„è·ç¦»
+ *  @param  p ç‚¹
+ *  @param  begin, end çº¿æ®µçš„ä¸¤ä¸ªç«¯ç‚¹
+ */
 double PLDistance(const Point &p, const Point &begin, const Point &end)
 {
-    /**********************
-     *¼ÆËãµãµ½Ïß¶ÎµÄ¾àÀë
-    **********************/
+
     Point b;
     Point e;
 
-    //»ñÈ¡bºÍeµÄÎ»ÖÃ
-    //------------------------------------------
-    //´¹Ïß¶Î
+    //èŽ·å–bå’Œeçš„ä½ç½®
+    //åž‚çº¿æ®µ
     if (begin.x == end.x) {
-        //bÔÚeÉÏ·½
+        //båœ¨eä¸Šæ–¹
         if (begin.y > end.y) {
             b.set(begin);
             e.set(end);
@@ -40,9 +41,9 @@ double PLDistance(const Point &p, const Point &begin, const Point &end)
             b.set(end);
         }
     }
-    //Æ½ÐÐÏß¶ÎÓëÐ±Ïß¶Î
+    //å¹³è¡Œçº¿æ®µä¸Žæ–œçº¿æ®µ
     else {
-        //bÔÚe×ó²à
+        //båœ¨eå·¦ä¾§
         if (begin.x < end.x) {
             b.set(begin);
             e.set(end);
@@ -54,48 +55,47 @@ double PLDistance(const Point &p, const Point &begin, const Point &end)
     }
 
 
-    //µãÓëÏß¶Î¾àÀë
-    //-------------------------------------------
-    //Ê×ÏÈ¼ÆËãÔÚÏß¶Î´¹Ïß·¶Î§ÄÚ-------------------
-    //´¹Ïß¶Î
+    //ç‚¹ä¸Žçº¿æ®µè·ç¦»
+    //é¦–å…ˆè®¡ç®—åœ¨çº¿æ®µåž‚çº¿èŒƒå›´å†…
+    //åž‚çº¿æ®µ
     if (b.x == e.x) {
         if (p.y <= b.y && p.y >= e.y)
             return abs(p.x-b.x);
     }
-    //Æ½ÐÐÏß¶Î
+    //å¹³è¡Œçº¿æ®µ
     else if (b.y == e.y) {
         if (p.x >= b.x && p.x <= e.x)
             return abs(p.y-b.y);
     }
-    //Ð±Ïß¶Î
+    //æ–œçº¿æ®µ
     else {
-        double k = 1.0*(b.y-e.y) / (b.x-e.x);  //Ïß¶ÎÐ±ÂÊ
-        double vk = -1.0 / k;                  //´¹Ïß¶ÎÐ±ÂÊ
-        double c  = b.y - k  * b.x;      //Ïß¶Î    y = k*x + c
-        double c1 = b.y - vk * b.x;      //´¹Ïß¶Î1 y = vk*x + c1
-        double c2 = e.y - vk * e.x;      //´¹Ïß¶Î2 y = vk*x + c2
+        double k = 1.0*(b.y-e.y) / (b.x-e.x);  //çº¿æ®µæ–œçŽ‡
+        double vk = -1.0 / k;                  //åž‚çº¿æ®µæ–œçŽ‡
+        double c  = b.y - k  * b.x;      //çº¿æ®µ    y = k*x + c
+        double c1 = b.y - vk * b.x;      //åž‚çº¿æ®µ1 y = vk*x + c1
+        double c2 = e.y - vk * e.x;      //åž‚çº¿æ®µ2 y = vk*x + c2
 
 /*cout << "y = " << k << "*x + " <<  c << '\n';
 cout << "y = " << vk << "*x + " <<  c1 << '\n';
 cout << "y = " << vk << "*x + " <<  c2 << '\n';*/
 
-        //µ±Ïß¶ÎÐ±ÂÊ´óÓÚ0
+        //å½“çº¿æ®µæ–œçŽ‡å¤§äºŽ0
         if (k > 0) {
             if (p.y >= vk*p.x+c1 && p.y <= vk*p.x+c2) {
-                //¼ÆËãpÓëÖ±ÏßÏàÁ¬µÄÖ±ÏßµÄ·½³Ì y = vk + c3
+                //è®¡ç®—pä¸Žç›´çº¿ç›¸è¿žçš„ç›´çº¿çš„æ–¹ç¨‹ y = vk + c3
                 double c3 = p.y - vk * p.x;
-                //¼ÆËã¸ÃÖ±ÏßÓëÔ­Ïß¶Î½»µã kx + c == vkx + c3
+                //è®¡ç®—è¯¥ç›´çº¿ä¸ŽåŽŸçº¿æ®µäº¤ç‚¹ kx + c == vkx + c3
                 int x = (c3-c) / (k-vk);
                 int y = k*x + c;
                 return PPDistance(p, Point(x, y));
             }
         }
-        //Ïß¶ÎÐ±ÂÊÐ¡ÓÚ0
+        //çº¿æ®µæ–œçŽ‡å°äºŽ0
         else {
             if (p.y <= vk*p.x+c1 && p.y >= vk*p.x+c2) {
-                //¼ÆËãpÓëÖ±ÏßÏàÁ¬µÄÖ±ÏßµÄ·½³Ì y = vk + c3
+                //è®¡ç®—pä¸Žç›´çº¿ç›¸è¿žçš„ç›´çº¿çš„æ–¹ç¨‹ y = vk + c3
                 double c3 = p.y - vk * p.x;
-                //¼ÆËã¸ÃÖ±ÏßÓëÔ­Ïß¶Î½»µã kx + c == vkx + c3
+                //è®¡ç®—è¯¥ç›´çº¿ä¸ŽåŽŸçº¿æ®µäº¤ç‚¹ kx + c == vkx + c3
                 int x = (c3-c) / (k-vk);
                 int y = k*x + c;
                 return PPDistance(p, Point(x, y));
@@ -105,10 +105,13 @@ cout << "y = " << vk << "*x + " <<  c2 << '\n';*/
 
     }
 
-    //²»ÔÚÏß¶Î´¹Ïß·¶Î§ÄÚ
+    //ä¸åœ¨çº¿æ®µåž‚çº¿èŒƒå›´å†…
     return min(PPDistance(p, b), PPDistance(p, e));
 }
 
+/**
+ *  @brief  äº¤æ¢ä¸¤ç‚¹åæ ‡
+ */
 void swapPoint(Point &p1, Point &p2)
 {
     int temp = p1.x;

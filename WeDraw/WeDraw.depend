@@ -599,10 +599,10 @@
 1511968317 source:d:\code_block\file\图形学\wedraw - 调色盘\src\manager.cpp
 	"Manager.h"
 
-1512194666 source:f:\program\git\painter\wedraw\src\graph.cpp
+1512800856 source:f:\program\git\painter\wedraw\src\graph.cpp
 	"Graph.h"
 
-1512194666 f:\program\git\painter\wedraw\include\graph.h
+1512800220 f:\program\git\painter\wedraw\include\graph.h
 	"Basic.h"
 	"Tool.h"
 	<vector>
@@ -631,7 +631,7 @@
 1512194666 f:\program\git\painter\wedraw\include\mypolygon.h
 	"Graph.h"
 
-1512194666 source:f:\program\git\painter\wedraw\src\myrectangle.cpp
+1512307670 source:f:\program\git\painter\wedraw\src\myrectangle.cpp
 	"myRectangle.h"
 
 1512194666 f:\program\git\painter\wedraw\include\myrectangle.h
@@ -643,7 +643,7 @@
 1512194666 f:\program\git\painter\wedraw\include\pan.h
 	"Graph.h"
 
-1512194666 source:f:\program\git\painter\wedraw\src\tool.cpp
+1512802781 source:f:\program\git\painter\wedraw\src\tool.cpp
 	"Tool.h"
 	<iostream>
 
@@ -653,21 +653,21 @@
 1512194666 f:\program\git\painter\wedraw\include\triangle.h
 	"Graph.h"
 
-1512201923 source:f:\program\git\painter\wedraw\main.cpp
+1512803264 source:f:\program\git\painter\wedraw\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<cstdlib>
 	<iostream>
 	"Menu.h"
 
-1512227465 f:\program\git\painter\wedraw\menu.h
+1512803569 f:\program\git\painter\wedraw\menu.h
 	<GL/glut.h>
 	"HappyDog.h"
 
-1512227364 f:\program\git\painter\wedraw\happydog.h
+1512802516 f:\program\git\painter\wedraw\happydog.h
 	"Manager.h"
 
-1512223414 f:\program\git\painter\wedraw\include\manager.h
+1512803857 f:\program\git\painter\wedraw\include\manager.h
 	<vector>
 	<GL/glut.h>
 	"childGraph.h"
@@ -693,7 +693,7 @@
 	"Circle.h"
 	<cstdlib>
 
-1512227353 source:f:\program\git\painter\wedraw\src\manager.cpp
+1512803806 source:f:\program\git\painter\wedraw\src\manager.cpp
 	"Manager.h"
 	<fstream>
 

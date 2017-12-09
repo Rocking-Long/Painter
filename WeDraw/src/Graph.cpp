@@ -1,8 +1,8 @@
 #include "Graph.h"
 
 
+///////////////////////////////////////////////////////åŸºæœ¬å‚æ•°è®¾ç½®
 
-/******************************************»ù±¾²ÎÊıÉèÖÃ**********************************************/
 void Graph::setColor(const Color &col)
 {
     conf.c.set(col);
@@ -39,16 +39,17 @@ bool Graph::finish()
 
 
 
-/*********************************************µãÉèÖÃ**************************************************/
+///////////////////////////////////////////////////////////////ç‚¹è®¾ç½®
 
+/**
+ *  @brief  åŠ å…¥ä¸€ä¸ªé¡¶ç‚¹åˆ°å›¾å½¢ä¸­
+ *  @param  x, y ä¸ºå½“å‰é¼ æ ‡ç‚¹å‡»çš„åæ ‡
+ */
 void Graph::setPoint(int x, int y)
 {
-    /*************************
-     *¼ÓÈëÒ»¸öµã
-     *ĞèÒªÅĞ¶Ï¼ÓÈëµÄÊÇÄÄ¸öµã
-     *µãÈ«²¿¼ÓÈëºó£¬ok = true
-     *Èı½ÇĞÎ£¬»­±ÊĞèÒªÖØĞ´¸Ãº¯Êı
-    *************************/
+    // éœ€è¦åˆ¤æ–­åŠ å…¥çš„æ˜¯å“ªä¸ªç‚¹
+    // ç‚¹å…¨éƒ¨åŠ å…¥åï¼Œok = true
+    // ä¸‰è§’å½¢ï¼Œç”»ç¬”éœ€è¦é‡å†™è¯¥å‡½æ•°
     if (ok) return;
     if (pArray.empty()) {
         pArray = vector<Point>(2, Point(x, y));
@@ -59,24 +60,29 @@ void Graph::setPoint(int x, int y)
     }
 }
 
-
+/**
+ *  @brief  ä¿®æ”¹æ­£åœ¨ç»˜åˆ¶çš„ç‚¹çš„åæ ‡
+ */
 void Graph::changePoint(int x, int y)
 {
-    /*************************
-     *ĞŞ¸ÄÕıÔÚ»æÖÆµÄµãµÄ×ø±ê
-     *Ö»ĞèĞŞ¸ÄµÚ¶ş¸öµã
-    **************************/
     pArray[1].x = x;
     pArray[1].y = y;
 }
 
-/********************************************¶¯×÷***********************************************/
+
+///////////////////////////////////////////////////////////////////////////åŠ¨ä½œ
+
+/**
+ *  @brief  å¯¹å›¾å½¢é¡¶ç‚¹è¿›è¡Œæ‹–æ‹½
+ *  @param  originalPoint é¼ æ ‡ç‚¹å‡»çš„ä½ç½®
+ *  @param  x, y é¼ æ ‡æ‹–æ‹½çš„è·ç¦»
+ */
 void Graph::drag(const Point &originalPoint, int x, int y)
 {
     double dis1 = PPDistance(originalPoint, pArray[0]);
     double dis2 = PPDistance(originalPoint, pArray[1]);
     int size = conf.lineSize + 2;
-    //Ñ¡Ôñ×î½üµã½øĞĞÀ­³¶
+    //é€‰æ‹©æœ€è¿‘ç‚¹è¿›è¡Œæ‹‰æ‰¯
     if (dis1 < dis2) {
         pArray[0].x += x;
         pArray[0].y += y;
@@ -87,6 +93,7 @@ void Graph::drag(const Point &originalPoint, int x, int y)
     }
 }
 
+/*ä½ç§»*/
 void Graph::move(int x, int y)
 {
     for (int i = 0; i < pArray.size(); i++) {
@@ -95,7 +102,12 @@ void Graph::move(int x, int y)
     }
 }
 
-/*******************************************ÆäËûÉèÖÃ****************************************************/
+/////////////////////////////////////////////////////////////////////å…¶ä»–è®¾ç½®
+
+/**
+ *  @brief  èµ‹å€¼ä¸€ä¸ªè‡ªå·±ï¼Œå¹¶æŠŠæ‰€æœ‰é¡¶ç‚¹æ¨ªåæ ‡+10
+ *  @param  g ä¿å­˜å¤åˆ¶çš„æŒ‡é’ˆ
+ */
 void Graph::copy(Graph *g)
 {
     g->s = s;
@@ -111,14 +123,15 @@ void Graph::copy(Graph *g)
     g->conf.lineSize = conf.lineSize;
 }
 
-void Graph::config() {
-    /*******************
-     *Í¼ĞÎ»æÖÆÇ°
-     *³õÊ¼»¯²ÎÊı
-    *******************/
-    glColor3f(conf.c.R, conf.c.G, conf.c.B);  //ÉèÖÃÑÕÉ«
-    glLineWidth(conf.lineSize);  //ÉèÖÃÏß¿í
-    //ÉèÖÃĞéÏß
+/**
+ *  @brief  ä¿®æ”¹OpenGLå½“å‰è®¾ç½®å‚æ•°ï¼Œ
+ *  ç”¨äºå›¾å½¢ç»˜åˆ¶å‰
+ */
+void Graph::config()
+{
+    glColor3f(conf.c.R, conf.c.G, conf.c.B);
+    glLineWidth(conf.lineSize);
+
     if (conf.isDashes) {
         glEnable(GL_LINE_STIPPLE);
         glLineStipple(1, 0x00FF);
@@ -133,6 +146,10 @@ void Graph::config() {
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
+
+/**
+ *  @brief  è·å–èƒ½åŒ…å›´å›¾å½¢çš„çŸ©å½¢çš„å·¦ä¸Šè§’ä¸å³ä¸‹è§’
+ */
 void Graph::getRectangle(Point &p1, Point &p2)
 {
     p1.x = p2.y = 999999;
