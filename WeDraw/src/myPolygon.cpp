@@ -155,7 +155,7 @@ void Bezier::draw()
             glEnd();
         }
     //绘制完，可以画出曲线
-    if (ok) {
+    if (pArray.size() == 4) {
         Point prePoint;
         prePoint.set(pArray[0]);
         for (double t = 0.0; t<=1.0;t+=0.05)
