@@ -119,5 +119,13 @@ void Ellipse::getRectangle(Point &p1, Point &p2)
     p2.y = y - abs(pArray[0].y-pArray[1].y);
 }
 
+double Ellipse::getDistance(int x, int y)
+{
+    int px = pArray[0].x;
+    int py = pArray[1].y;
+    int R = min(abs(pArray[0].y-pArray[1].y), abs(pArray[0].x-pArray[1].x));
+    return abs(PPDistance(Point(px,py), Point(x,y))-R);
+}
+
 
 

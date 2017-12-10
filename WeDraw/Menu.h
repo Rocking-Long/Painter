@@ -60,9 +60,7 @@ void shapeSubMenu(GLint shapeOption)
         case 1: shape = LINE;      break;
         case 2: shape = TRIANGLE;  break;
         case 3: shape = RECTANGLE; break;
-        case 4: shape = CIRCLE;    break;
         case 5: shape = POLYGON;   break;
-        case 6: shape = ELLIPSE;   break;
     }
     cancelMotion();
 }
@@ -75,8 +73,10 @@ void lineWhatMenu(GLint line)
     **********************/
     if (line == 1)
         shape = LINE;
-    else
+    else if (line == 2)
         shape = FOLDLINE;
+    else if (line == 3) {}
+        shape = BEZIER;
     cancelMotion();
 }
 
@@ -91,6 +91,16 @@ void recWhatMenu(GLint rec)
         shape = SQUARE;
     else
         shape = CRECTANGLE;
+    cancelMotion();
+}
+
+/* 圆形选择 */
+void cirWhatMenu(GLint cir)
+{
+    if (cir == 1)
+        shape = CIRCLE;
+    else
+        shape = ELLIPSE;
     cancelMotion();
 }
 
@@ -204,6 +214,7 @@ void motionMenu(GLint m)
     }
     else if (m == 4) {
         //复制
+        Painter.mirror = 0;  //镜像需要关闭，否则崩溃
         Painter.createGraph(Painter[optionID]->s, Painter[optionID]->conf);
         Painter[optionID]->copy(Painter.getLast());
         //将新复制的图形的conf设定为前一个图形的conf
@@ -212,6 +223,7 @@ void motionMenu(GLint m)
         Painter.getLast()->conf.isDashes = Painter[optionID]->conf.isDashes;
         myMotion = MOVING;
         display();
+        Painter.mirror = 1;  //镜像重开
     }
 
     switch (m) {
@@ -392,20 +404,24 @@ void Menu()
     GLint subMenuLine = glutCreateMenu(lineWhatMenu);
         glutAddMenuEntry ("线段", 1);
         glutAddMenuEntry ("折线", 2);
+        glutAddMenuEntry ("三次Bezier曲线", 3);
 
     GLint subMenuRec = glutCreateMenu(recWhatMenu);
         glutAddMenuEntry ("长方形", 1);
         glutAddMenuEntry ("正方形", 2);
         glutAddMenuEntry ("圆角矩形", 3);
 
+    GLint subMenuCic = glutCreateMenu(cirWhatMenu);
+        glutAddMenuEntry ("正圆", 1);
+        glutAddMenuEntry ("椭圆", 2);
+
     subMenu1 = glutCreateMenu (shapeSubMenu);
         glutAddMenuEntry ("画笔", 0);
-        glutAddSubMenu   ("直线", subMenuLine);
+        glutAddSubMenu   ("线", subMenuLine);
         glutAddMenuEntry ("三角形", 2);
         glutAddSubMenu   ("矩形", subMenuRec);
-        glutAddMenuEntry ("圆形", 4);
+        glutAddSubMenu   ("圆形", subMenuCic);
         glutAddMenuEntry ("多边形", 5);
-        glutAddMenuEntry ("椭圆", 6);
 
     /**********************参数***************************/
     subMenu3 = glutCreateMenu (lineSizeSubMenu);

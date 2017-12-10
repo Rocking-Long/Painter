@@ -31,6 +31,7 @@ public:
 
     void draw();
     void getRectangle(Point &, Point &);
+    double getDistance(int x, int y);
 };
 
 #endif // CIRCLE_H

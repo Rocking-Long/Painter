@@ -19,7 +19,7 @@ public:
 
 };
 
-/****************’€œﬂ********************/
+/***************’€œﬂ********************/
 class foldLine: public myPolygon
 {
 public:
@@ -33,4 +33,26 @@ public:
     void rotate();
 };
 
+/* «˙œﬂ */
+class Bezier: public foldLine
+{
+public:
+    Bezier(int id): foldLine(id)
+    {
+        s = BEZIER;
+    }
+
+    void draw();
+    void rotate();
+    void setPoint(int x, int y);
+};
+
+
+
 #endif // MYPOLYGON_H
+
+
+
+
+
+

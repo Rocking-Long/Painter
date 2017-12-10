@@ -1,4 +1,6 @@
 #include "myPolygon.h"
+#include <cmath>
+using std::pow;
 
 void myPolygon::draw()
 {
@@ -120,3 +122,73 @@ void foldLine::rotate()
 {
 
 }
+
+
+////////////////////////////////////////////////////////////////////////////Bezier曲线
+void Bezier::setPoint(int x, int y)
+{
+    if (pArray.size() == 4) {
+        ok = true;
+        extend = 0;
+        return;
+    }
+    if (ok)
+        return;
+    //防止另一个点未定义
+    if (pArray.empty()) {
+        extend = 1;
+        pArray.push_back(Point(x, y));
+    }
+
+    pArray.push_back(Point(x, y));
+}
+
+void Bezier::draw()
+{
+    config();
+    //正在绘制中，或被选择，画出折线
+    if (extend == 1)
+        for (int i = 0; i < pArray.size()-1; i++) {
+            glBegin(GL_LINE_STRIP);
+                glVertex2i(pArray[i].x, pArray[i].y);
+                glVertex2i(pArray[i+1].x, pArray[i+1].y);
+            glEnd();
+        }
+    //绘制完，可以画出曲线
+    if (ok) {
+        Point prePoint;
+        prePoint.set(pArray[0]);
+        for (double t = 0.0; t<=1.0;t+=0.05)
+        {
+            Point P;
+            double a1 = pow((1-t),3);
+            double a2 = pow((1-t),2)*3*t;
+            double a3 = 3*t*t*(1-t);
+            double a4 = t*t*t;
+            P.x = a1*pArray[0].x + a2*pArray[1].x + a3*pArray[2].x + a4*pArray[3].x;
+            P.y = a1*pArray[0].y + a2*pArray[1].y + a3*pArray[2].y + a4*pArray[3].y;
+            glBegin(GL_LINE_STRIP);
+                glVertex2i(prePoint.x, prePoint.y);
+                glVertex2i(P.x, P.y);
+            glEnd();
+            prePoint.set(P);
+        }
+    }
+}
+
+void Bezier::rotate()
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

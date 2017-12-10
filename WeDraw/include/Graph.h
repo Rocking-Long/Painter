@@ -34,6 +34,7 @@ public:
     bool ok;   //图形是否绘制完成
     GraphConfig conf;  //基本参数
     vector<Point> pArray;  //点集
+    int extend;  //扩展功能，如果有的话
 
 public:
     Graph(int i): id(i), s(LINE), ok(false) {}

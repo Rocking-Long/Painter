@@ -150,6 +150,8 @@ void Manager::createGraph(Shape s, const GraphConfig &config)
                 g = new CRectangle(id); m = new CRectangle(id+1);break;
             case ELLIPSE:
                 g = new Ellipse(id); m = new Ellipse(id+1); break;
+            case BEZIER:
+                g = new Bezier(id); m = new Bezier(id+1); break;
         }
         panel.push_back(g);
         getLast()->setConfig(config);
@@ -408,6 +410,9 @@ int Manager::getNearestGraph(int x, int y)
     panel.push_back(panel[id]);
     panel[id] = NULL;
     id = panel.size()-1;
+    //如果前一个被选中的图形是曲线，去掉折线
+    if (id > 0 && panel[id-1] != NULL && panel[id-1]->s == BEZIER)
+        panel[id-1]->extend = 0;
 
     cout << "选择  " << graphName[panel[id]->s] << '\n'
          << "RGB(" << panel[id]->conf.c.R
@@ -417,6 +422,9 @@ int Manager::getNearestGraph(int x, int y)
     Point p1, p2;
     panel[id]->getRectangle(p1, p2);
     setRectangle(p1, p2);
+    //曲线要加上折线
+    if (panel[id]->s == BEZIER)
+        panel[id]->extend = 1;
 
     return id;
 }
@@ -509,25 +517,6 @@ void Manager::read()
     }
 Test:
     panel.pop_back();
-/*    cout << panel.size() << endl;
-
-    cout << panel.size() << endl;*/
-
-/*    for (int i = 0; i < panel.size(); i++) {
-        for (int j = 0; j < panel[i]->pArray.size(); j++) {
-            cout << panel[i]->s;
-            cout << panel[i]->conf.c.R;
-            cout << panel[i]->conf.c.G;
-            cout << panel[i]->conf.c.B;
-            cout << panel[i]->conf.lineSize;
-            cout << panel[i]->conf.isDashes;
-            cout << panel[i]->conf.isFilled;
-            cout << panel[i]->conf.frame << endl;
-            cout << panel[i]->pArray[j].x << ' ' <<  panel[i]->pArray[j].y << endl;
-        }
-//    cout << panel[i]->pArray.size() << endl;
-    }*/
-
     input.close();
     cout << "读取成功！" << endl;
 }

@@ -100,7 +100,8 @@ enum Shape
     FOLDLINE,  //折线
     SQUARE,    //正方形
     CRECTANGLE, //圆角矩形
-    ELLIPSE    //椭圆
+    ELLIPSE,    //椭圆
+    BEZIER      //三次Bezier曲线
 };
 
 
